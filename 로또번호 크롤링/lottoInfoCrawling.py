@@ -28,7 +28,7 @@ def getLottoInfo(startRound, endRound) :
 
 
         # 회차
-        roundNo.append(soup.select("#article > div:nth-child(2) > div > div.win_result > h4 > strong")[0].text.strip())
+        roundNo.append(int(soup.select("#article > div:nth-child(2) > div > div.win_result > h4 > strong")[0].text.strip()[0:-1]))
         
 
 
