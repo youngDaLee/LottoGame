@@ -20,3 +20,10 @@
 - 이런 식으로 961회차까지 데이터베이스 내에 저장
 - [참고 링크 : csv를 데이터베이스 내에 넣는 방법](https://huddling.tistory.com/26)
 - [참고 링크 : csv 파일 넣어야 할 위치 알아내는 방법](https://blog.naver.com/alsdomm/221737364291)
+
+### 데이터베이스 간단 정보
+- ID : GoldPig
+- password : Dream
+- 데이터베이스명 : LottoGame
+- 로또 정보 테이블명 : lotto_info
+
