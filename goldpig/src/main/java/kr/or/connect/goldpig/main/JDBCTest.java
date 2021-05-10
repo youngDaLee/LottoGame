@@ -18,5 +18,6 @@ public class JDBCTest {
 		Lotto resultLotto = lottoDao.selectById_num(201);
 		System.out.println(resultLotto);
 		
+		
 	}
 }
