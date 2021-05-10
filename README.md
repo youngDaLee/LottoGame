@@ -9,6 +9,7 @@
 | 2021-04-28 | Lotto number Crawling |
 | 2021-05-06 | Lotto Information Crawling |
 | 2021-05-07 | Modify Lotto Information Crawling |
+| 2021-05-10 | Put lotto info in MySQL & MySQL linkage with project |
 
 <br>
 
@@ -26,4 +27,10 @@
 - password : Dream
 - 데이터베이스명 : LottoGame
 - 로또 정보 테이블명 : lotto_info
+
+<br>
+
+## 프로젝트 생성 참고 링크
+- [스프링 프로젝트 초기 설정](https://all-record.tistory.com/174)
+- [스프링 mysql 연동](https://all-record.tistory.com/175)
 
