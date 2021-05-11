@@ -11,7 +11,8 @@
 - password : game
 - DB명 : lottoDB
 - 테이블명 : lotto
-
+![db](.img/1.png)
+![tabel](.img/2.png)
 
 ### 에러
 - [Junit](https://subdong2.tistory.com/82)
