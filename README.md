@@ -10,7 +10,9 @@
 - id : lotto
 - password : game
 - DB명 : lottoDB
-- 테이블명 : lotto
+- 테이블명 : lotto    
+
+
 ![db](.img/1.PNG)
 ![tabel](.img/2.PNG)
 
