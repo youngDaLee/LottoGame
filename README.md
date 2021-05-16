@@ -10,6 +10,7 @@
 | 2021-05-06 | Lotto Information Crawling |
 | 2021-05-07 | Modify Lotto Information Crawling |
 | 2021-05-10 | Put lotto info in MySQL & MySQL linkage with project |
+| 2021-05-16 | Add getPrice function |
 
 <br>
 
