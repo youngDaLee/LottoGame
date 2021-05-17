@@ -1,0 +1,16 @@
+<table class="table-contents" style="padding: 10px">
+    <tr>
+        <th>회차</th>
+        <th>로또번호</th>
+        <th>보너스번호</th>
+        <th>1등상금</th>
+    </tr>
+    {%for l in lotto%}
+    <tr>
+        <td>{{l.cnt}}</td>
+        <td>{{l.lottono}}</td>
+        <td>{{l.bnusno}}</td>
+        <td>{{l.firstwinamnt}}</td>
+    </tr>
+    {%endfor%}
+</table>
