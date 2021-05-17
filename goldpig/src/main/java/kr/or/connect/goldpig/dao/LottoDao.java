@@ -35,11 +35,6 @@ public class LottoDao {
 
 	}
 	
-	public int insert(Lotto lotto) {
-		SqlParameterSource params = new BeanPropertySqlParameterSource(lotto);
-		return insertAction.execute(params);
-	}
-
 	
 	public Lotto selectById_num(Integer id) {
 		try {
