@@ -52,7 +52,8 @@ result = []
 for page in range(1, 961):
     # 초기화
     cnt = None,
-    winnums = None,
+    lottoNo = None,
+    bnusNo = None,
     firstWinamnt = None,
     secondWinamnt = None,
     thirdWinamnt = None,
@@ -70,9 +71,8 @@ for page in range(1, 961):
 
         cnt = page
 
-        lottono = return_drwt(soup.select('div.num.win > p ')[0])
-        bnusNo = return_drwt(soup.select('div.num.bonus > p')[0])
-        winnums = lottono + bnusNo
+        lottoNo = return_drwt(soup.select('div.num.win > p ')[0])
+        bnusNo = return_drwt(soup.select('div.num.bonus > p')[0])[0]
 
         firstWinamnt = cleaning(soup.select('tr:nth-of-type(2) > td:nth-of-type(4)')[0].text.strip())
         secondWinamnt = cleaning(soup.select('tr:nth-of-type(3) > td:nth-of-type(4)')[0].text.strip())
@@ -85,7 +85,8 @@ for page in range(1, 961):
     
     item_obj = {
         'cnt' : cnt,
-        'winnums' : winnums,
+        'lottoNo' : lottoNo,
+        'bnusNo' : bnusNo,
         'firstWinamnt' : firstWinamnt,
         'secondWinamnt' : secondWinamnt,
         'thirdWinamnt' : thirdWinamnt,

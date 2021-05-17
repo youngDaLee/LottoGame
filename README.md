@@ -15,7 +15,7 @@
 
 ![db](.img/1.PNG)
 ![tabel](.img/2.PNG)
-
+- 21.05.17 : 크롤링 수정(winnums -> lottoNo/bnusNo 로 구분함)
 ### 에러
 - [Junit](https://subdong2.tistory.com/82)
 - [JDBC연결](https://yunyoung1819.tistory.com/89)
