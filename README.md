@@ -13,8 +13,8 @@
 - 테이블명 : lotto    
 
 
-![db](.img/1.PNG)
-![tabel](.img/2.PNG)
+![db](.img/table.PNG)
+![tabel](.img/show.PNG)
 - 21.05.17: 크롤링 수정(winnums -> lottoNo/bnusNo 로 구분함)
 ### 에러
 - [Junit](https://subdong2.tistory.com/82)
