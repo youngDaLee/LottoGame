@@ -1,0 +1,85 @@
+var express = require('express');
+var router = express.Router();
+var bodyParser = require('body-parser');
+var app = express();
+app.locals.pretty = true;
+app.set('port', process.env.PORT || 3000);
+app.set('views', __dirname + '/views');
+//app.set('view engine', 'ejs');
+//app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'pug');
+app.use(express.static(__dirname + '/public'));
+app.use('/', router);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// 동기식 mysql
+var sync_mysql = require('sync-mysql');
+var conn = new sync_mysql({
+    host : 'localhost',
+    user :'GoldPig',
+    password : 'Dream',
+    database : 'LottoGame'
+});
+
+// 메인 화면
+app.get(['/', '/lotto'], function(req, res) {
+    res.render('main_page');
+});
+
+app.post(['/', '/lotto'], function(req, res) {
+    var input_num = req.body.input_num;
+    console.log(input_num);
+    var sql = 'SELECT * FROM lotto_info';
+    const lotto_nums = conn.query(sql);
+    var price = 0;
+    for (var i = 0; i < lotto_nums.length; i++) {
+        var cnt = 0;
+        var bonus_correct = false;
+        for (var j = 0; j < 6; j++) {
+            if (input_num[j] == lotto_nums[i].num1) {
+                cnt++;
+            }
+            if (input_num[j] == lotto_nums[i].num2) {
+                cnt++;
+            }
+            if (input_num[j] == lotto_nums[i].num3) {
+                cnt++;
+            }
+            if (input_num[j] == lotto_nums[i].num4) {
+                cnt++;
+            }
+            if (input_num[j] == lotto_nums[i].num5) {
+                cnt++;
+            }
+            if (input_num[j] == lotto_nums[i].num6) {
+                cnt++;
+            }
+            if (input_num[j] == lotto_nums[i].bonus) {
+                bonus_correct = true;
+            }
+        }
+        if (cnt == 6) {
+            price += lotto_nums[i].price1;
+            console.log('1등');
+        } else if (cnt == 5 && bonus_correct) {
+            price += lotto_nums[i].price2;
+            console.log('2등');
+        } else if (cnt == 5) {
+            price += lotto_nums[i].price3;
+            console.log('3등');
+        } else if (cnt == 4) {
+            price += lotto_nums[i].price4;
+            console.log('4등');
+        } else if (cnt == 3) {
+            price += lotto_nums[i].price5;
+            console.log('5등');
+        }
+    }
+
+    res.render('result_page', { input_num: input_num, price: price });
+});
+
+app.listen(app.get('port'), function() {
+    console.log('Connected to ' + app.get('port') + ' port!');
+});

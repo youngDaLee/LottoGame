@@ -1,0 +1,14 @@
+doctype html
+html
+    head 
+        meta(charset='utf-8')
+        title Result
+    body 
+        form(name='main_form' action='/lotto' method='get')
+            div [입력 번호]
+            -for (var i = 0; i < 6; i++)
+                div= input_num[i]
+            br
+            div [총 상금]
+            div(style='float:left;')= price
+            div(style='float:left;') 원

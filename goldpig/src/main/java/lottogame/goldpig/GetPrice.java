@@ -46,6 +46,7 @@ public class GetPrice {
 			} else if (equal_cnt == 3) {
 				tmp = i.getPrice5();
 			}
+			
 			if (max_price < tmp) {
 				max_price = tmp;
 			}

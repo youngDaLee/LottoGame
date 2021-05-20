@@ -1,0 +1,13 @@
+doctype html
+html
+    head 
+        meta(charset='utf-8')
+        title Lotto Game
+    body 
+        form(name='main_form' action='/lotto' method='post')
+            center
+                -for (var i = 0; i < 6; i++)
+                    input(id='num' type='text' name='input_num' placeholder='숫자 입력')
+                    br
+                br
+                button(type='submit') 추첨
