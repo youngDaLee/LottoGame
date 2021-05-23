@@ -10,8 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Lato&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="icon" href="./img/goldpig.jpg">
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="icon" href="{% static 'img/goldpig.jpg' %}">
     
 
 </head>
@@ -19,7 +20,7 @@
     <div class="inner">
         <div class="head-wrap">
             <div class="img_wrap">
-                <img class="imghere" src="./img/goldpig.jpg" alt="">
+                <img class="imghere" src="{% static 'img/goldpig.jpg' %}" alt="">
             </div>
             <div class="title-and-intro">
                 <p class="title">👑 황금돼지 꿈 👑</p>
@@ -53,7 +54,7 @@
         </div>
     </div>
 
-    <script src="autoNum.js"></script>
-    <script src="manualNum.js"></script>
+    <script src="{% static 'autoNum.js' %}"></script>
+    <script src="{% static 'manualNum.js' %}"></script>
 </body>
 </html>
