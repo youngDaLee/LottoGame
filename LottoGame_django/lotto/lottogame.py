@@ -4,6 +4,10 @@ import ast
 lottos = Lotto.objects.all()
 
 def lottoGame(nums):
+    # # 프론트에서 Post했을 때 23,14,34 이런식으로 들어옴.
+    # # 그 숫자를 []안에 넣은 뒤 ast로 list로 바꿔 수정.
+    # numstr = '['+nums+']'
+    # nums = ast.literal_eval(numstr)
     total_prize = []
     for lotto in lottos:
         cnt = lotto.cnt

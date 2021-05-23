@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from .models import Lotto
 from .lottogame import lottoGame
+from .form import PostForm
+from django.shortcuts import redirect
+import ast
+
 
 # Create your views here.
 def lotto_view(request):
@@ -8,6 +12,28 @@ def lotto_view(request):
     return render(request, 'index.html',{"lotto":lotto})
 
 def game_view(request):
-    num = [9,13,21,25,32,42]
+    num = [41,39,13,2,29,5]
     prize = lottoGame(num)
     return render(request, 'game.html', {'prize':prize})
+
+def post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            #post = form.save(commit=False)
+            #post.num = request
+            #post.game = lottoGame(request)
+
+            # 프론트에서 autoNum 받아줌.
+            num = request.POST.get('autoNum')
+            # 23,45,...형태로 들어오는 숫자를 []안에 넣어 리스트 형식으로 바꿔줌
+            numstr = '['+num+']'
+            # ast로 list로 바꿔서 lottogame 돌려줌
+            usernumlist = ast.literal_eval(numstr)
+            gamenum = lottoGame(usernumlist)
+            # post.save()
+        return render(request, 'parameter.html', {'form':form, 'game':gamenum})
+    
+    else:
+        form = PostForm()
+        return render(request, 'parameter.html', {"form":form})

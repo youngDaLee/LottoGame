@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import manager
 
 # Create your models here.
 class Lotto(models.Model):
@@ -14,3 +15,10 @@ class Lotto(models.Model):
     class Meta:
         managed = False
         db_table = 'lotto'
+
+class UserNum(models.Model):
+    num = models.CharField(max_length=80, blank=True, null=True) # 사용자가 입력할 번호
+    gamenum = models.BigIntegerField(blank=True,null=True) # 로또상금
+
+    class Meta:
+        managed = False
