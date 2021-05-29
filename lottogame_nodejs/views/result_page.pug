@@ -4,11 +4,17 @@ html
         meta(charset='utf-8')
         title Result
     body 
-        form(name='main_form' action='/lotto' method='get')
+        form(name='main_form' action='/result' method='post')
             div [입력 번호]
             -for (var i = 0; i < 6; i++)
                 div= input_num[i]
             br
             div [총 상금]
-            div(style='float:left;')= price
+            div(style='float:left;' name='price')= price
             div(style='float:left;') 원
+            br
+            br
+            div [랭킹에 저장하기]
+            label 닉네임
+            input(type='text' name='nickname' placeholder='랭킹 저장 시 사용할 닉네임을 적어주세요')
+            button(type='submit') 저장

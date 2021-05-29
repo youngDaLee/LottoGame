@@ -1,0 +1,14 @@
+doctype html 
+html 
+    head 
+        meta(charset='utf-8')
+        title Ranking 
+    body 
+        -for (n in nicknames)
+            label [닉네임]
+            div= nicknames[n]
+            label [상금]
+            div= prices[n]
+            label [날짜]
+            div= dates[n]
+            br

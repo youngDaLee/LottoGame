@@ -22,8 +22,11 @@ var conn = new sync_mysql({
     database : 'LottoGame'
 });
 
+var price = 0;
+
 // 메인 화면
 app.get(['/', '/lotto'], function(req, res) {
+    price = 0;
     res.render('main_page');
 });
 
@@ -32,7 +35,6 @@ app.post(['/', '/lotto'], function(req, res) {
     console.log(input_num);
     var sql = 'SELECT * FROM lotto_info';
     const lotto_nums = conn.query(sql);
-    var price = 0;
     for (var i = 0; i < lotto_nums.length; i++) {
         var cnt = 0;
         var bonus_correct = false;
@@ -78,6 +80,33 @@ app.post(['/', '/lotto'], function(req, res) {
     }
 
     res.render('result_page', { input_num: input_num, price: price });
+});
+
+app.post('/result', function(req, res) {
+    var nickname = req.body.nickname;
+    var now = new Date();
+    var date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+    var sql = 'INSERT INTO ranking (nickname, price, date) VALUE(?, ?, ?)';
+    var params = [nickname, price, date];
+    conn.query(sql, params, function(err) {
+        if (err)
+            console.log(err);
+        else {
+            console.log("Insert 성공!");
+        }
+    });
+    sql = 'SELECT * FROM ranking';
+    var ranking = conn.query(sql);
+    var nicknames = [];
+    var prices = [];
+    var dates = [];
+    console.log(ranking);
+    for (var i = 0; i < ranking.length; i++) {
+        nicknames.push(ranking[i].nickname);
+        prices.push(ranking[i].price);
+        dates.push(ranking[i].date);
+    }
+    res.render('rank_page', { nicknames: nicknames, prices: prices, dates: dates });
 });
 
 app.listen(app.get('port'), function() {
