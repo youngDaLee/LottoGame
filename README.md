@@ -12,6 +12,7 @@
 | 2021-05-10 | Put lotto info in MySQL & MySQL linkage with project |
 | 2021-05-16 | Add getPrice function |
 | 2021-05-20 | Create server by node.js |
+| 2021-05-29 | Make ranking |
 
 <br>
 
