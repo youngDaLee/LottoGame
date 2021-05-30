@@ -1,6 +1,8 @@
 # LottoGame
 👩‍💻2021 1학기 이니로 웹 프로젝트
 
+### log
+210530| manualNum.js 수정
 ### autoNum.js
 6자리 숫자 List 자동 생성 및 동적으로 form 태그를 생성하여 post로 제출.
 
