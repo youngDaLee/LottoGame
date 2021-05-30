@@ -6,7 +6,6 @@ const manualNum = document.querySelector('.manual-num');
 const manualNumBtn = document.querySelector('.manual-result-btn');
 const warningSixNum = document.querySelector('.warning-sixnum');
 
-
 // 사용자가 수동추첨 눌렀을 때 
 manualNumBtn.addEventListener('click', ()=>{
   console.log('manualNum writed');
