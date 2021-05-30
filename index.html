@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    
     <title>황금돼지꿈</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Lato&display=swap" rel="stylesheet">
 
+    
     <link rel="stylesheet" href="./css/main.css">
     <link rel="icon" href="./img/goldpig.jpg">
     
@@ -31,10 +33,11 @@
         <div class="body-wrap">
             <div class="manual-inputwrap">
                 <p class="manual-num-title">수동 추첨</p>
-                <p class="manual-num-info">원하는 숫자 6자리를 입력하세요. </p>
+                <p class="manual-num-info">원하는 숫자 6자리를 입력하세요.<br>(숫자를 공백으로 구분 해 주세요) </p>
                 
                     <input class ="manual-num" type="text" placeholder="6자리숫자 입력" name="manualNum">
                     <button class ="manual-result-btn">수동추첨</button>
+                    <p class="warning-sixnum"></p>
             </div>
             
             <div class="auto-inputwrap">
@@ -53,7 +56,7 @@
         </div>
     </div>
 
-    <script src="autoNum.js"></script>
-    <script src="manualNum.js"></script>
+    <script src="./js/autoNum.js"></script>
+    <script src="./js/manualNum.js"></script>
 </body>
 </html>

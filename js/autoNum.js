@@ -5,7 +5,6 @@ const autoBtnTextField = document.querySelector('.auto-text-field')
 //자동 추첨 버튼 
 const autoNumBtn = document.querySelector('.auto-result-btn')
 
-
 // 랜덤 문자 배열 생성하기
 function makeRandomNumber(){
     let randomNumber = [];
@@ -65,4 +64,5 @@ autoNumBtn.addEventListener('click',()=>{
 
     // submit form 
     newForm.submit();
+    window.location.href = 'showRank.html';
 })
