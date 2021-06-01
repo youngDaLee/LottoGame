@@ -5,9 +5,8 @@ var app = express();
 app.locals.pretty = true;
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
-//app.set('view engine', 'ejs');
-//app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
 app.use(express.static(__dirname + '/public'));
 app.use('/', router);
 app.use(bodyParser.json());
@@ -23,15 +22,27 @@ var conn = new sync_mysql({
 });
 
 var price = 0;
+var input_num;
 
 // 메인 화면
 app.get(['/', '/lotto'], function(req, res) {
     price = 0;
-    res.render('main_page');
+    var sql = 'SELECT * FROM ranking ORDER BY price DESC';
+    var ranking = conn.query(sql);
+    var nicknames = [];
+    var prices = [];
+    var dates = [];
+    console.log(ranking);
+    for (var i = 0; i < ranking.length; i++) {
+        nicknames.push(ranking[i].nickname);
+        prices.push(ranking[i].price);
+        dates.push(ranking[i].date);
+    }
+    res.render('index.html', { nicknames: nicknames, prices: prices, dates: dates });
 });
 
-app.post(['/', '/lotto'], function(req, res) {
-    var input_num = req.body.input_num;
+app.post('/lotto', function(req, res) {
+    input_num = req.body.num;
     console.log(input_num);
     var sql = 'SELECT * FROM lotto_info';
     const lotto_nums = conn.query(sql);
@@ -78,12 +89,13 @@ app.post(['/', '/lotto'], function(req, res) {
             console.log('5등');
         }
     }
-
-    res.render('result_page', { input_num: input_num, price: price });
+    console.log(price + '원');
+    res.render('showResult.html', { price: price });
 });
 
-app.post('/result', function(req, res) {
-    var nickname = req.body.nickname;
+app.get('/rank', function(req, res) {
+    var nickname = req.query.nickname;
+    console.log(nickname);
     var now = new Date();
     var date = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
     var sql = 'INSERT INTO ranking (nickname, price, date) VALUE(?, ?, ?)';
@@ -95,7 +107,7 @@ app.post('/result', function(req, res) {
             console.log("Insert 성공!");
         }
     });
-    sql = 'SELECT * FROM ranking';
+    sql = 'SELECT * FROM ranking ORDER BY price DESC';
     var ranking = conn.query(sql);
     var nicknames = [];
     var prices = [];
@@ -106,7 +118,7 @@ app.post('/result', function(req, res) {
         prices.push(ranking[i].price);
         dates.push(ranking[i].date);
     }
-    res.render('rank_page', { nicknames: nicknames, prices: prices, dates: dates });
+    res.render('showTotalRank.html', { nicknames: nicknames, prices: prices, dates: dates });
 });
 
 app.listen(app.get('port'), function() {
