@@ -3,13 +3,12 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var http = require('http');
 var app = express();
+var moment = require('moment');
 app.locals.pretty = true;
 app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
+//app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 app.use('/', router);
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 app.set('port', process.env.PORT || 3000);
 
 var sync_mysql = require('sync-mysql');
@@ -20,14 +19,22 @@ var conn = new sync_mysql({
     database : 'lotto_info'
 });
 
+var mysql = require('mysql');
+var pool = mysql.createConnection({
+    host : 'localhost',
+    user :'lotto_user',
+    password : 'lotto123',
+    database : 'lotto_info'
+});
+
 app.get('/', function(req, res){
     res.redirect('/index.html');
 });
 
-app.get('/lotto', function(req, res){
+app.post('/lotto', function(req, res){
     var sql = 'SELECT * FROM lotto';
     var info = conn.query(sql);
-    var auto_num = [6, 14, 26, 28, 32, 33, 42]; 
+    var auto_num = [6, 13, 26, 28, 32, 33, 42]; 
     var price = 0;
     //console.log(info.length);
     for (var i = 0; i<info.length; i++) {
@@ -72,6 +79,36 @@ app.get('/lotto', function(req, res){
     res.redirect('/index.html');
 
 });
+
+app.get('/rank', function(req, res){
+    var nickname = req.query.name;
+    var score = 100000;
+    var date = moment().format("YYYY-MM--DD");
+    var sql = 'INSERT INTO ranking (nickname, score, date) VALUES(?,?,?)';
+    var info = [nickname, score, date];
+    pool.query(sql, info, function(err){
+        if(err) {
+            console.log(err);
+        } else {
+            console.log('success');
+        }
+    });
+    res.redirect('./showRank.html');
+});
+
+app.get('/showTotalRank', function(req, res) {
+    console.log('o');
+    var sql = 'SELECT * FROM ranking ORDER BY score DESC';
+    var info = conn.query(sql);
+    for (var i = 0; i<info.length; i++) {
+        console.log(i+1 + info[i].nickname, info[i].date + info[i].score);
+        res.send(i+1 + " " + info[i].nickname+ " " + info[i].date + " "+ info[i].score);
+    }
+    
+    res.redirect('./showTotalRank.html');
+
+});
+
 
 
 http.createServer(app).listen(app.get('port'), function(){
