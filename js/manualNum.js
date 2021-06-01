@@ -37,8 +37,6 @@ const sendNumListToBack = (numList)=>{
     newForm.method = 'post'; 
     newForm.action = '/lotto'; 
     // target 속성은 폼 데이터(form data)를 서버로 제출한 후 받는 응답이 열릴 위치를 명시.
-    // 서버로부터 받은 응답을 새로운 탭에서 보여줌.
-    newForm.target = '_blank'; 
     //create element (input)
     let input1 = document.createElement('input');
     
@@ -54,6 +52,6 @@ const sendNumListToBack = (numList)=>{
 
     // submit form 
     newForm.submit();
-    window.location.href = 'showRank.html';
+    window.location.href = 'showResult.html';
 }
 
