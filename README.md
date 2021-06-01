@@ -13,6 +13,7 @@
 | 2021-05-16 | Add getPrice function |
 | 2021-05-20 | Create server by node.js |
 | 2021-05-29 | Make ranking |
+| 2021-06-01 | Connect with Front |
 
 <br>
 
