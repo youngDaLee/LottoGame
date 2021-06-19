@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>황금돼지꿈</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Lato&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/showTotalRank.css">
+    <link rel="icon" href="./img/goldpig.jpg">
+
+
+</head>
+<body>
+    <div class="inner">
+        <div class="head-wrap">
+            <div class="img_wrap">
+                <img class="imghere" src="./img/goldpig.jpg" alt="">
+            </div>
+            <div class="title-and-intro">
+                <p class="title">👑 황금돼지 꿈 👑</p>
+                <p class="intro">환영합니다 \(￣︶￣*\))<br>황금돼지꿈에서 로또 추첨을 해서<br> 당신의 행운지수를 알아보세요.</p>
+            </div>
+        </div>
+        
+
+        <div class="body-wrap">
+            <div class="manual-inputwrap">
+                <p class="manual-num-title">수동 추첨</p>
+                <p class="manual-num-info">1~ 45 중 원하는 숫자 6자리를 입력하세요.<br>(숫자를 공백으로 구분 해 주세요) </p>
+
+                    <input class ="manual-num" type="text" placeholder="6자리숫자 입력" name="manualNum">
+                    <button class ="manual-result-btn">수동추첨</button>
+                    <p class="warning-sixnum"></p>
+            </div>
+
+            <div class="auto-inputwrap">
+                <p class="auto-num-title">자동 추첨</p>
+                <p class="auto-num-info">'자동추첨 번호 생성' 버튼을 누르면<br> 6자리 번호가 생성됩니다.<br>원하는 만큼 자동 생성 가능 합니다. </p>
+                <button class="auto-num-make">자동 번호 생성</button>
+                <p class="auto-text-field"></p>
+                <button class="auto-result-btn">자동추첨</button>
+            </div>
+
+            <div class="rank_wrap">
+                <p class="rankmain">로또 당첨 랭킹 보기</p>
+                <p class="rank_table_here"></p>
+                <a href="./showTotalRank.html">랭킹 더 보기</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/makeMainRank.js"></script>
+    <script src="./js/autoNum.js"></script>
+    <script src="./js/manualNum.js"></script>
+</body>
+</html>
