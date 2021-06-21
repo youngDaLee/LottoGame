@@ -1,9 +1,9 @@
 from django import forms
 from django.db.models import fields
-from .models import UserNum
+from .models import Ranking
 
 class PostForm(forms.ModelForm):
 
     class Meta:
-        model = UserNum
-        fields = ('num',)
+        model = Ranking
+        fields = ('nickname','num','price')
