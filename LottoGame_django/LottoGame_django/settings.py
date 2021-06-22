@@ -41,7 +41,8 @@ INSTALLED_APPS = [
 ]
 
 INSTALLED_APPS +=[
-    'lotto'
+    'lotto',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

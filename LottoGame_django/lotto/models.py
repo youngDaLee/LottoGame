@@ -17,6 +17,7 @@ class Lotto(models.Model):
         db_table = 'lotto'
 
 class Ranking(models.Model):
+    rank_id = models.IntegerField(primary_key=True)
     nickname = models.CharField(db_column='nickname',max_length=100, blank=True, null=True) # 닉네임
     num = models.CharField(db_column='num',max_length=80, blank=True, null=True) # 사용자가 입력할 번호
     price = models.BigIntegerField(db_column='price',blank=True,null=True) # 로또상금

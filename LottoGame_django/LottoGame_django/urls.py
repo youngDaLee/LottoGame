@@ -15,11 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls.conf import include
 from lotto import views
+from lotto.views import rankAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('lottogame/',views.lotto_view),
     path('gametest/',views.game_view),
     path('lotto',views.post),
+    path('api-auth/',include('rest_framework.urls')),
+    path('api/rank/',rankAPI.as_view()),
 ]
