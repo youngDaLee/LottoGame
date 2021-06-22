@@ -21,7 +21,7 @@
 - db수정
   - 이름 직관적으로 firstWinamnt -> price1, ..., price5         
 
-![rank](./img/rankingtable.PNG)
+![rank](.img/rankingtable.PNG)
 - ranking table
 - 이 테이블을 rest framework로 /api/rank/ 에 보냄
 - 이슈 : 닉네임을 어떻게 받을지
