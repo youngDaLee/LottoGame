@@ -5,6 +5,7 @@
 - Spring 4.3.3
 - Tomcat 8.5
 - MySQL 8.0.22
+- django 3.2.3
 
 ### DB
 - id : lotto
