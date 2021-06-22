@@ -10,7 +10,7 @@
 - id : lotto
 - password : game
 - DB명 : lottoDB
-- 테이블명 : lotto    
+- 테이블명 : lotto, ranking    
 
 
 ![db](.img/table.PNG)
@@ -20,7 +20,10 @@
   - 리스트로 번호 받아오지 않고 각각 받아옴(lottoNo -> num1, num2, ... ,num6, bonus)
 - db수정
   - 이름 직관적으로 firstWinamnt -> price1, ..., price5
-
+![rank](./img/ranikingtable.PNG)
+- ranking table
+- 이 테이블을 rest framework로 /api/rank/ 에 보냄
+- 이슈 : 닉네임을 어떻게 받을지
 ### 참고 블로그
 - [Spring 프로젝트 세팅 및 DB 연결](https://all-record.tistory.com/176?category=733072)
 ### 에러
