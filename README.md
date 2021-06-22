@@ -19,8 +19,9 @@
   - winnums -> lottoNo/bnusNo 로 구분
   - 리스트로 번호 받아오지 않고 각각 받아옴(lottoNo -> num1, num2, ... ,num6, bonus)
 - db수정
-  - 이름 직관적으로 firstWinamnt -> price1, ..., price5
-![rank](./img/ranikingtable.PNG)
+  - 이름 직관적으로 firstWinamnt -> price1, ..., price5         
+
+![rank](./img/rankingtable.PNG)
 - ranking table
 - 이 테이블을 rest framework로 /api/rank/ 에 보냄
 - 이슈 : 닉네임을 어떻게 받을지
