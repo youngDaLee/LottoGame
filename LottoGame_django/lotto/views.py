@@ -35,6 +35,7 @@ def post(request):
             # ast로 list로 바꿔서 lottogame 돌려줌
             usernumlist = ast.literal_eval(numstr)
             gamenum = lottoGame(usernumlist)
+            post.num = num
             post.price = sum(gamenum)
             post.save()
         return render(request, 'parameter.html', {'form':form, 'game':gamenum})

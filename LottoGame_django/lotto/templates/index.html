@@ -1,17 +1,20 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    
     <title>황금돼지꿈</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Lato&display=swap" rel="stylesheet">
 
-    {%load static%}
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    
+    <link rel="stylesheet"  href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/showTotalRank.css' %}">
     <link rel="icon" href="{% static 'img/goldpig.jpg' %}">
     
 
@@ -32,10 +35,11 @@
         <div class="body-wrap">
             <div class="manual-inputwrap">
                 <p class="manual-num-title">수동 추첨</p>
-                <p class="manual-num-info">원하는 숫자 6자리를 입력하세요. </p>
+                <p class="manual-num-info">원하는 숫자 6자리를 입력하세요.<br>(숫자를 공백으로 구분 해 주세요) </p>
                 
                     <input class ="manual-num" type="text" placeholder="6자리숫자 입력" name="manualNum">
                     <button class ="manual-result-btn">수동추첨</button>
+                    <p class="warning-sixnum"></p>
             </div>
             
             <div class="auto-inputwrap">
@@ -48,13 +52,14 @@
             
             <div class="rank_wrap">
                 <p class="rankmain">로또 당첨 랭킹 보기</p>
-                
-                <p class="morerank">랭킹 더 보기</p>
+                <p class="rank_table_here"></p>
+                <a href="./showTotalRank.html">랭킹 더 보기</a>                
             </div>
         </div>
     </div>
 
+    <script src="{% static 'makeMainRank.js' %}"></script>
     <script src="{% static 'autoNum.js' %}"></script>
-    <script src="{% static 'manualNum.js' %}"></script>
+    <script rc="{% static 'manualNum.js' %}"></script>
 </body>
 </html>

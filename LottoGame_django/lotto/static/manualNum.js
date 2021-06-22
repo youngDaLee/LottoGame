@@ -4,29 +4,27 @@
 const manualNum = document.querySelector('.manual-num');
 //수동 추첨 버튼 
 const manualNumBtn = document.querySelector('.manual-result-btn');
+const warningSixNum = document.querySelector('.warning-sixnum');
 
-//input 안의 vaule확인
-//사용자가 입력을 완료 하고, 마우스 커서를 input form 바깥으로 이동 했을 때,
+// 사용자가 수동추첨 눌렀을 때 
 manualNumBtn.addEventListener('click', ()=>{
   console.log('manualNum writed');
   // input으로 받아오면 newManualNum이 string 타입.
   let newManualNum = manualNum.value;
   let manualNumList = [];
+  //공백을 기준으로 입력 받은 숫자를 구분하여 manualNumList에 넣기
+  manualNumList = newManualNum.split(" ")
   
-  //받은 숫자가 6자리가 아니라면 manualNumList에 넣지 않음. 
-  if (newManualNum.length !=6){
-    console.log('6자리 숫자를 입력 해 주세요');
+  // 입력 받은 수동 숫자가 6자리 일 시 백에 form 태그 생성하여 전송. 
+  if (manualNumList.length == 6) {
+    console.log(manualNumList)
+    sendNumListToBack(manualNumList)
   }
   else{
-    //manualNumList 배열에 사용자로부터 수동으로 입력 받은 숫자 담음.
-    for (let i =0; i<newManualNum.length; i ++){
-      console.log(typeof(parseInt(newManualNum[i])))
-      manualNumList.push(parseInt(newManualNum[i]));
-    }
+    warningSixNum.innerText = '6자리 숫자를 입력 해 주세요 ! ';
   }
-
-  //동적으로 form태그 생성 후 백에 post로 보내기. 
-  sendNumListToBack(manualNumList)
+  
+  
 })
 
 //동적으로 form태그 생성 후 백에 post로 보내기. 
@@ -39,8 +37,6 @@ const sendNumListToBack = (numList)=>{
     newForm.method = 'post'; 
     newForm.action = '/lotto'; 
     // target 속성은 폼 데이터(form data)를 서버로 제출한 후 받는 응답이 열릴 위치를 명시.
-    // 서버로부터 받은 응답을 새로운 탭에서 보여줌.
-    newForm.target = '_blank'; 
     //create element (input)
     let input1 = document.createElement('input');
     
@@ -56,5 +52,6 @@ const sendNumListToBack = (numList)=>{
 
     // submit form 
     newForm.submit();
+    window.location.href = 'showResult.html';
 }
 
