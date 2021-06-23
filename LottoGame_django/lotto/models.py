@@ -16,6 +16,8 @@ class Lotto(models.Model):
         managed = False
         db_table = 'lotto'
 
+
+
 class Ranking(models.Model):
     rank_id = models.IntegerField(primary_key=True)
     nickname = models.CharField(db_column='nickname',max_length=100, blank=True, null=True) # 닉네임
