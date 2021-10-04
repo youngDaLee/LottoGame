@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>황금돼지꿈</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300&family=Lato&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet"  href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/showTotalRank.css' %}">
+    <link rel="icon" href="{% static 'img/goldpig.jpg' %}">
+    
+
+</head>
+<body>
+    <div class="inner">
+        <div class="head-wrap">
+            <div class="img_wrap">
+                <img class="imghere" src="{% static 'img/goldpig.jpg' %}" alt="">
+            </div>
+            <div class="title-and-intro">
+                <p class="title">👑 황금돼지 꿈 👑</p>
+                <p class="intro">전체 랭킹 입니다.</p>
+            </div>
+        </div>
+        
+        
+        <div class="body-wrap">
+            <div class="rank_table_here">
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static 'makeRankTable.js' %}"></script>
+</body>
+</html>
